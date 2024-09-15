@@ -1,0 +1,68 @@
+{
+  "name": "photobox",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "turbo:dev": "next dev --turbo",
+    "build": "next build",
+    "turbo:build": "turbo build",
+    "start": "next start",
+    "lint": "next lint --fix",
+    "typecheck": "tsc --noEmit",
+    "prettier": "prettier --write \"**/*.{ts,tsx,json}\" --cache",
+    "format": "npm run prettier && npm run lint && npm run typecheck",
+    "format:biome": "npx @biomejs/biome ci ./src"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "classnames": "^2.5.1",
+    "jotai": "^2.8.0",
+    "lodash": "^4.17.21",
+    "next": "^14.2.4",
+    "next-seo": "^6.5.0",
+    "nookies": "^2.5.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.75.0",
+    "sonner": "^1.4.41",
+    "swr": "^2.2.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.7.1",
+    "@next/eslint-plugin-next": "^14.2.2",
+    "@types/lodash": "^4.17.0",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "@types/ua-parser-js": "^0.7.39",
+    "@typescript-eslint/eslint-plugin": "^7.7.1",
+    "@typescript-eslint/parser": "^7.7.1",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.2",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-perfectionist": "^2.9.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.34.1",
+    "postcss": "^8.4.38",
+    "prettier": "^3.2.5",
+    "turbo": "^1.13.2",
+    "typescript": "^5.4.5"
+  },
+  "browserslist": {
+    "production": [
+      "last 15 version",
+      "> 1%",
+      "IE 10"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
