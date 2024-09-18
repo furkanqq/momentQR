@@ -22,5 +22,7 @@ html {
 
 body {
   font-family: var(--app-font);
-  background-color: rgba(var(--colors-light));
+  background-color: rgba(var(--colors-secondary));
+  margin: 0;
+  box-sizing: border-box;
 }

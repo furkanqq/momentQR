@@ -1,0 +1,124 @@
+$height: 38px;
+
+@mixin hover {
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.container {
+  // new
+  &.color-light {
+    background: rgba(var(--colors-light));
+    border: 1px solid rgba(var(--colors-primary));
+    color: rgba(var(--colors-primary));
+    @include hover;
+  }
+
+  &.color-primary {
+    background: rgba(var(--colors-primary));
+    color: rgba(var(--colors-secondary));
+    border: 1px solid rgba(var(--colors-primary));
+    @include hover;
+  }
+
+  &.color-outline-primary {
+    background: transparent;
+    color: rgba(var(--colors-primary));
+    border: 1px solid rgba(var(--colors-primary));
+    @include hover;
+  }
+
+  &.color-outline-tertiary {
+    background: transparent;
+    color: rgba(var(--colors-tertiary));
+    border: 1px solid rgba(var(--colors-tertiary));
+    @include hover;
+  }
+}
+
+.rounded {
+  border-radius: 50px !important;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  border: 0;
+  width: auto;
+  height: $height;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  font-weight: 600;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  font-size: 12px;
+
+  @media (max-width: 768px) {
+    border-radius: 4px;
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &.disabled,
+  &[data-loading='true'] {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.iconLayer {
+  display: flex;
+  max-width: calc($height / 2);
+  height: $height;
+  align-items: center;
+
+  &.leftIcon {
+    margin-right: 0.5rem;
+  }
+
+  &.rightIcon {
+    margin-left: 0.5rem;
+  }
+}
+
+.loaderLayer {
+  width: calc($height / 2.5);
+  height: calc($height / 2.5);
+  border: 2px solid #ffffff4a;
+  border-bottom-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  &.loader-secondary {
+    border: 2px solid rgb(0 0 0 / 0.3);
+    border-bottom-color: #fff;
+  }
+
+  &.loader-white {
+    border: 2px solid rgb(0 0 0 / 0.7);
+    border-bottom-color: #fff;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
