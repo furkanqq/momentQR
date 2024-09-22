@@ -42,7 +42,9 @@ export default function Header({ bg = 'dark' }: { bg: 'light' | 'dark' }) {
           <Link href={'/login'}>
             <XButton color="primary">Login</XButton>
           </Link>
-          <XButton color="outline-primary">QR</XButton>
+          <Link href={'/register'}>
+            <XButton color="outline-primary">Register</XButton>
+          </Link>
         </div>
       </XContainer>
     </header>
