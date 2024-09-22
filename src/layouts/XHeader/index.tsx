@@ -2,12 +2,14 @@ import styles from './index.module.scss';
 
 import Link from 'next/link';
 import React from 'react'; // SCSS Module
+import cn from 'classnames';
+
 import { XContainer } from '../../components/XContainer';
 import { XButton } from '../../components/XButton';
 
-export default function Header() {
+export default function Header({ bg = 'dark' }: { bg: 'light' | 'dark' }) {
   return (
-    <header className={styles.header}>
+    <header className={cn(bg === 'dark' ? styles.header : styles.headerLight)}>
       <XContainer className={styles.container}>
         <div className={styles.logo}>
           <Link href="/">
@@ -37,7 +39,9 @@ export default function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <XButton color="primary">Login</XButton>
+          <Link href={'/login'}>
+            <XButton color="primary">Login</XButton>
+          </Link>
           <XButton color="outline-primary">QR</XButton>
         </div>
       </XContainer>

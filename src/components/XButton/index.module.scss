@@ -18,12 +18,12 @@ $height: 38px;
   &.color-primary {
     background: rgba(var(--colors-primary));
     color: rgba(var(--colors-secondary));
-    border: 1px solid rgba(var(--colors-primary));
+    border: 1px solid rgba(var(--colors-secondary));
     @include hover;
   }
 
   &.color-outline-primary {
-    background: transparent;
+    background: rgba(var(--colors-secondary));
     color: rgba(var(--colors-primary));
     border: 1px solid rgba(var(--colors-primary));
     @include hover;
@@ -57,6 +57,7 @@ $height: 38px;
   user-select: none;
   cursor: pointer;
   font-size: 12px;
+  border-radius: 4px;
 
   @media (max-width: 768px) {
     border-radius: 4px;

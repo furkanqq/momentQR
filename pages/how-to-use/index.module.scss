@@ -1,0 +1,35 @@
+.image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  background-color: rgba(var(--colors-primary));
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    opacity: 0.4;
+  }
+}
+
+.sectionDetail {
+  display: flex;
+  flex-direction: column;
+  .box {
+    border-bottom: 1px solid rgba(var(--colors-tertiary));
+    padding-block: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    &:last-child {
+      border-bottom: none;
+    }
+    strong {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+}
