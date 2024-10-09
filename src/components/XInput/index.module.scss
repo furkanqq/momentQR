@@ -1,0 +1,69 @@
+.inputContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  border: 2px solid transparent;
+  height: 60px;
+  border-radius: 4px;
+
+  &.light {
+    background-color: rgba(var(--colors-primary));
+    border-color: rgba(var(--colors-secondary));
+  }
+
+  &.dark {
+    background-color: rgba(var(--colors-secondary));
+    border-color: rgba(var(--colors-primary));
+
+    input {
+      color: #fff;
+    }
+
+    .searchButton {
+      background-color: rgba(var(--colors-secondary));
+      color: rgba(var(--colors-secondary));
+    }
+  }
+
+  &:focus-within {
+    border-color: rgba(
+      var(--colors-tertiary)
+    ); // Focus olduğunda border rengi (örn: turuncu)
+  }
+}
+
+.input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  outline: none;
+  font-size: 14px;
+  background-color: transparent;
+
+  &::placeholder {
+    color: rgba(var(--colors-white));
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  &:focus {
+    border-color: transparent; // Input'un kendi focus durumu için outline'ı gizlemek
+    box-shadow: none; // Varsayılan shadow'u kaldırmak
+  }
+}
+
+.searchButton {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 8px;
+  margin-left: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0070f3;
+    color: white;
+  }
+}
