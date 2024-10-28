@@ -28,8 +28,8 @@ export default function LoginPage() {
       <div className={styles.loginFoot}>
         <div className={styles.content}>
           <div className={styles.text}>
-            Make Your <span>Memories</span>, {"Everyone's"}{' '}
-            <span>Memories</span>!
+            Make Your <span>Memories</span>, {'Everyones'} <span>Memories</span>
+            !
           </div>
           <div className={styles.inputs}>
             <XInput placeholder="E-posta" />
@@ -39,7 +39,7 @@ export default function LoginPage() {
           <div className={styles.nav}>
             <XButton color="outline-primary">Sign In</XButton>
             <Link href={'/register'}>
-              {"Don't"} have an account yet? Sign up now.
+              {'Dont'} have an account yet? Sign up now.
             </Link>
           </div>
         </div>

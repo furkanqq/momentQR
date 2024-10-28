@@ -3,25 +3,25 @@ import { IconType } from './type';
 export const IconEyeOff: React.FC<IconType> = (props) => {
   return (
     <svg
-      width="21"
-      height="20"
-      viewBox="0 0 21 20"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 21 20"
+      height="20"
+      fill="none"
+      width="21"
       {...props}>
       <path
         d="M8.925 4.18002C9.44125 4.05918 9.9698 3.99877 10.5 4.00002C15.75 4.00002 18.75 10 18.75 10C18.2947 10.8517 17.7518 11.6536 17.13 12.3925M12.09 11.59C11.884 11.8111 11.6356 11.9884 11.3596 12.1114C11.0836 12.2343 10.7857 12.3005 10.4836 12.3058C10.1815 12.3111 9.88137 12.2555 9.60121 12.1424C9.32104 12.0292 9.06654 11.8608 8.85288 11.6471C8.63923 11.4335 8.47079 11.179 8.35763 10.8988C8.24447 10.6186 8.18889 10.3186 8.19423 10.0165C8.19956 9.71434 8.26568 9.4164 8.38866 9.1404C8.51163 8.86441 8.68894 8.61601 8.91 8.41002M14.955 14.455C13.6729 15.4323 12.1118 15.9737 10.5 16C5.25 16 2.25 10 2.25 10C3.18292 8.26144 4.47685 6.74247 6.045 5.54502L14.955 14.455Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
         strokeLinejoin="round"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="1.5"
       />
       <path
         d="M2.25 1.75L18.75 18.25"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
         strokeLinejoin="round"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeWidth="1.5"
       />
     </svg>
   );

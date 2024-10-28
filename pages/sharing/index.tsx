@@ -1,6 +1,8 @@
-import { XContainer } from '@/src/components/XContainer';
-import AppLayout from '@/src/layouts/AppLayout';
 import styles from './index.module.scss';
+
+import { XContainer } from '@/src/components/XContainer';
+
+import AppLayout from '@/src/layouts/AppLayout';
 
 export default function SharingPage() {
   return (
