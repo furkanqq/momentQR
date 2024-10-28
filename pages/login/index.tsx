@@ -30,8 +30,6 @@ export default function LoginPage() {
           <div className={styles.text}>
             Make Your <span>Memories</span>, {'Everyones'} <span>Memories</span>
             !
-
-            
           </div>
           <div className={styles.inputs}>
             <XInput placeholder="E-posta" />
