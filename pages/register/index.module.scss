@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('/assets/pattern.svg');
   background-size: contain;
   &::after {
     position: absolute;
@@ -23,14 +22,17 @@
     padding: 16px 32px;
     border-radius: 4px;
     backdrop-filter: blur(4px);
-    background-color: rgba(var(--colors-primary), 0.4);
-    width: 360px;
+    background-color: rgba(var(--colors-primary), 0.6);
+    width: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 24px;
+    @media (max-width: 768px) {
+      width: 90%;
+    }
     .logo {
       height: 100%;
       padding: 20px 0px;

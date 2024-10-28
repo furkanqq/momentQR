@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 
 import { XButton } from '@/src/components/XButton';
-import XInput from '@/src/components/XInput';
+import { XInput } from '@/src/components/XInput';
 
 import Link from 'next/link';
 
@@ -22,7 +22,7 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        <XInput placeholder="E-posta" searchEnabled={false} mode="light" />
+        <XInput placeholder="E-posta" />
         <Link href={'/'}>
           <XButton color="primary">Continue</XButton>
         </Link>

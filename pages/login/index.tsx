@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 
 import { XButton } from '@/src/components/XButton';
 import { XImage } from '@/src/components/XImage';
-import XInput from '@/src/components/XInput';
+import { XInput } from '@/src/components/XInput';
 
 import Link from 'next/link';
 
@@ -32,13 +32,15 @@ export default function LoginPage() {
             <span>Memories</span>!
           </div>
           <div className={styles.inputs}>
-            <XInput placeholder="E-posta" searchEnabled={false} mode="dark" />
-            <XInput placeholder="Password" searchEnabled={false} mode="dark" />
+            <XInput placeholder="E-posta" />
+            <XInput placeholder="Password" type="password" />
             <Link href={'/'}>Forgot your password?</Link>
           </div>
           <div className={styles.nav}>
             <XButton color="outline-primary">Sign In</XButton>
-            <Link href={'/'}>{"Don't"} have an account yet? Sign up now.</Link>
+            <Link href={'/register'}>
+              {"Don't"} have an account yet? Sign up now.
+            </Link>
           </div>
         </div>
       </div>

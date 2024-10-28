@@ -1,69 +1,45 @@
-.inputContainer {
+.container {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.5rem;
+  width: 100%;
+}
+
+.label {
+  color: rgba(var(--colors-secondary));
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  svg {
+    margin-right: 1.5px;
+  }
+}
+
+.innerWrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 10px;
-  width: 100%;
-  border: 2px solid transparent;
-  height: 60px;
-  border-radius: 4px;
 
-  &.light {
-    background-color: rgba(var(--colors-primary));
-    border-color: rgba(var(--colors-secondary));
+  .innerRight {
+    position: absolute;
+    right: 8px;
   }
 
-  &.dark {
-    background-color: rgba(var(--colors-secondary));
-    border-color: rgba(var(--colors-primary));
-
-    input {
-      color: #fff;
+  input {
+    border-radius: 8px;
+    border: 1px solid rgba(var(--colors-secondary), 0.8);
+    color: rgba(var(--colors-secondary));
+    gap: 10px;
+    height: 41px;
+    width: 100%;
+    padding: 10px 20px;
+    box-shadow: none;
+    outline: none;
+    &:focus {
+      border: 1px solid rgba(var(--colors-tertiary));
     }
-
-    .searchButton {
-      background-color: rgba(var(--colors-secondary));
-      color: rgba(var(--colors-secondary));
-    }
-  }
-
-  &:focus-within {
-    border-color: rgba(
-      var(--colors-tertiary)
-    ); // Focus olduğunda border rengi (örn: turuncu)
-  }
-}
-
-.input {
-  flex: 1;
-  border: none;
-  padding: 8px;
-  outline: none;
-  font-size: 14px;
-  background-color: transparent;
-
-  &::placeholder {
-    color: rgba(var(--colors-white));
-    font-weight: 500;
-    opacity: 0.7;
-  }
-
-  &:focus {
-    border-color: transparent; // Input'un kendi focus durumu için outline'ı gizlemek
-    box-shadow: none; // Varsayılan shadow'u kaldırmak
-  }
-}
-
-.searchButton {
-  background-color: #e0e0e0;
-  border: none;
-  padding: 8px;
-  margin-left: 8px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #0070f3;
-    color: white;
   }
 }

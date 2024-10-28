@@ -1,0 +1,24 @@
+.bg {
+  background-color: rgba(var(--colors-primary), 0.3);
+  .manuelContainer {
+    min-height: 100vh;
+    background-color: rgba(var(--colors-primary));
+    .header {
+      width: 100%;
+      height: 360px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      border: 1px solid green;
+
+      .top {
+        background-color: rgba(var(--colors-secondary));
+        height: 50%;
+      }
+      .bottom {
+        border: 1px solid red;
+        height: 50%;
+      }
+    }
+  }
+}
