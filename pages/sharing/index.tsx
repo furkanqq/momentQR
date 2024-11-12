@@ -1,13 +1,14 @@
-import { IconCamera } from '@/src/assets/IconCamera';
 import styles from './index.module.scss';
+
+import { IconSetting } from '@/src/assets/IconSetting';
+import { IconCamera } from '@/src/assets/IconCamera';
+import { IconInvite } from '@/src/assets/IconInvite';
 
 import { XContainer } from '@/src/components/XContainer';
 import { XImage } from '@/src/components/XImage';
 
 import AppLayout from '@/src/layouts/AppLayout';
 import Link from 'next/link';
-import { IconSetting } from '@/src/assets/IconSetting';
-import { IconInvite } from '@/src/assets/IconInvite';
 
 export default function SharingPage() {
   return (
@@ -27,11 +28,11 @@ export default function SharingPage() {
                   <XImage
                     src="/assets/user.png"
                     alt="Avatar"
-                    width={120}
                     height={120}
+                    width={120}
                   />
                   <div className={styles.update}>
-                    <IconCamera width={32} height={32} />
+                    <IconCamera height={32} width={32} />
                   </div>
                 </div>
                 <div className={styles.username}>Furkan Ilhan</div>
