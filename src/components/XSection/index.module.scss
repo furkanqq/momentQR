@@ -1,7 +1,12 @@
 .light {
   height: 70vh;
   width: 100%;
-  background-color: rgba(var(--colors-primary));
+  background: rgb(11, 99, 128);
+  background: linear-gradient(
+    90deg,
+    rgba(var(--colors-primary)) 30%,
+    rgba(var(--colors-secondary)) 100%
+  );
   padding: 44px 0px;
   position: relative;
 
@@ -45,22 +50,18 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: rgba(var(--colors-secondary)) !important;
+      color: rgba(var(--colors-light)) !important;
       p {
-        color: rgba(var(--colors-secondary)) !important;
+        color: rgba(var(--colors-light)) !important;
       }
       h1 {
-        color: rgba(var(--colors-secondary)) !important;
+        color: rgba(var(--colors-light)) !important;
       }
       h2 {
-        color: rgba(var(--colors-secondary)) !important;
+        color: rgba(var(--colors-light)) !important;
       }
       h3 {
-        color: rgba(var(--colors-secondary)) !important;
-      }
-      button {
-        background-color: rgba(var(--colors-secondary)) !important;
-        color: rgba(var(--colors-primary)) !important;
+        color: rgba(var(--colors-light)) !important;
       }
     }
   }
@@ -69,7 +70,7 @@
 .dark {
   height: 70vh;
   width: 100%;
-  background-color: rgba(var(--colors-secondary));
+  background-color: rgba(var(--colors-tertiary));
   padding: 44px 0px;
   position: relative;
 
@@ -93,8 +94,8 @@
         left: 0;
         font-size: 24px;
         font-weight: 600;
-        color: rgba(var(--colors-primary));
-        background-color: rgba(var(--colors-secondary));
+        color: rgba(var(--colors-secondary));
+        background-color: rgba(var(--colors-tertiary));
         padding: 8px 32px;
         width: 320px;
       }
@@ -111,7 +112,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      color: rgba(var(--colors-primary));
+      h1 {
+        color: rgba(var(--colors-light)) !important;
+      }
+      strong {
+        color: rgba(var(--colors-light));
+      }
+      p {
+        color: rgba(var(--colors-light));
+      }
     }
   }
 }
@@ -152,6 +161,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgba(var(--colors-secondary));
+    color: rgba(var(--colors-light));
   }
 }

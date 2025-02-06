@@ -30,8 +30,8 @@
 
   input {
     border-radius: 8px;
-    border: 1px solid rgba(var(--colors-secondary), 0.8);
-    color: rgba(var(--colors-secondary));
+    border: 1px solid rgba(var(--colors-tertiary), 0.8);
+    color: rgba(var(--colors-tertiary));
     gap: 10px;
     height: 41px;
     width: 100%;
@@ -39,7 +39,7 @@
     box-shadow: none;
     outline: none;
     &:focus {
-      border: 1px solid rgba(var(--colors-tertiary));
+      border: 1px solid rgba(var(--colors-secondary));
     }
   }
 }

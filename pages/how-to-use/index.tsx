@@ -11,7 +11,7 @@ import XFooter from '@/src/layouts/XFooter';
 export default function HowToUsePage() {
   return (
     <AppLayout>
-      <XHeader bg="dark" />
+      <XHeader />
       <XBanner
         desc={
           'We are a team of developers who are passionate about technology.'

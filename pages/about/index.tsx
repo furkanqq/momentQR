@@ -13,7 +13,7 @@ import Link from 'next/link';
 export default function AboutPage() {
   return (
     <AppLayout>
-      <XHeader bg="light" />
+      <XHeader />
       <XBanner
         desc={
           'We are a team of developers who are passionate about technology.'

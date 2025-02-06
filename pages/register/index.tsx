@@ -8,6 +8,7 @@ import Link from 'next/link';
 export default function RegisterPage() {
   return (
     <div className={styles.container}>
+      <div className={styles.noise}></div>
       <div className={styles.content}>
         <div className={styles.logo}>
           <Link href="/">

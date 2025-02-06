@@ -25,6 +25,7 @@ interface IProps {
   defaultValue?: string;
   readOnly?: boolean;
   visible?: boolean;
+  accept?: string;
   label?: string;
   value?: string;
   name?: string;
@@ -39,6 +40,7 @@ export const XInput: React.FC<IProps> = ({
   onKeyDown,
   onChange,
   readOnly,
+  accept,
   value,
   label,
   name,
@@ -80,6 +82,7 @@ export const XInput: React.FC<IProps> = ({
           onChange={handleOnChange}
           onKeyDown={onKeyDown}
           autoCapitalize="off"
+          accept={accept}
           value={value}
           name={name}
           ref={ref}

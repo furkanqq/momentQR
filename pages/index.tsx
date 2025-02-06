@@ -12,35 +12,35 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <AppLayout>
-      <XHeader bg="dark" />
+      <XHeader />
       <XBanner />
       <XSection
         content={<SectionContent />}
         image="/assets/images.png"
         label="Lorem Ipsum"
         reverse={true}
-        bg="light"
-      />
-      <XSection
-        content={<SectionContentTwo />}
-        image="/assets/login.png"
-        reverse={false}
-        // label="Lorem Ipsum"
         bg="dark"
       />
       <XSection
         content={<SectionContentTwo />}
-        image="/assets/login.png"
-        reverse={true}
+        image="/assets/phone.png"
+        reverse={false}
         // label="Lorem Ipsum"
         bg="light"
+      />
+      <XSection
+        content={<SectionContentTwo />}
+        image="/assets/wedd.png"
+        reverse={true}
+        // label="Lorem Ipsum"
+        bg="dark"
       />
       <XSection
         content={<SectionContent />}
         image="/assets/images.png"
         reverse={false}
         // label="Lorem Ipsum"
-        bg="dark"
+        bg="light"
       />
       <XFooter bg="dark" />
     </AppLayout>
@@ -79,20 +79,17 @@ function SectionContentTwo() {
   return (
     <div className={styles.sectionTwo}>
       <div className={styles.content}>
-        <h1>
-          Test <span>New</span> Software
-        </h1>
+        <h1>Test New Software</h1>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor <span>incididunt</span> ut labore et dolore magna
-          aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          do eiusmod tempor incididunt ut <span>labore</span> et dolore magna
-          aliqua. Sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+          ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
         </p>
       </div>
       <Link href={'/'}>
-        <XButton color="primary">Continue</XButton>
+        <XButton color="blur">Continue</XButton>
       </Link>
     </div>
   );

@@ -1,44 +1,52 @@
 .header {
-  position: absolute;
+  position: fixed;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
   padding: 24px 24px;
   z-index: 1000;
-  background-color: rgba(var(--colors-secondary));
+  // background-color: rgba(var(--colors-secondary));
   .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
     align-items: center;
-    .logo {
-      a {
-        text-decoration: none;
-        color: rgba(var(--colors-primary));
-        font-size: 24px;
-        font-weight: 600;
-      }
-      img {
-        height: 52px;
-        cursor: pointer;
-      }
-    }
+    .logoNav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      padding-right: 24px;
 
-    .nav {
-      ul {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      li {
+      .logo {
         a {
           text-decoration: none;
-          color: rgba(var(--colors-primary));
-          font-weight: 500;
-          &:hover {
-            color: rgba(var(--colors-primary));
+          color: rgba(var(--colors-light));
+          font-size: 24px;
+          font-weight: 600;
+        }
+        img {
+          height: 52px;
+          cursor: pointer;
+        }
+      }
+
+      .nav {
+        ul {
+          display: flex;
+          gap: 2rem;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        li {
+          a {
+            text-decoration: none;
+            color: rgba(var(--colors-light));
+            font-weight: 500;
+            &:hover {
+              color: rgba(var(--colors-primary));
+            }
           }
         }
       }
@@ -46,7 +54,13 @@
 
     .actions {
       display: flex;
+      justify-content: flex-end;
       gap: 1rem;
+      a {
+        button {
+          width: 144px;
+        }
+      }
     }
   }
 }
@@ -62,48 +76,56 @@
   }
 }
 
-.headerLight {
-  position: absolute;
+.headerMove {
+  position: fixed;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
   padding: 24px 24px;
   z-index: 1000;
-  background-color: rgba(var(--colors-primary));
-
+  background-color: rgba(var(--colors-tertiary));
+  transition: background-color 0.3s;
   .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
     align-items: center;
-    .logo {
-      a {
-        text-decoration: none;
-        color: rgba(var(--colors-secondary));
-        font-size: 24px;
-        font-weight: 600;
-      }
-      img {
-        height: 52px;
-        cursor: pointer;
-      }
-    }
+    .logoNav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+      padding-right: 24px;
 
-    .nav {
-      ul {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      li {
+      .logo {
         a {
           text-decoration: none;
           color: rgba(var(--colors-secondary));
-          font-weight: 500;
-          &:hover {
-            color: rgba(var(--colors-secondary));
+          font-size: 24px;
+          font-weight: 600;
+        }
+        img {
+          height: 52px;
+          cursor: pointer;
+        }
+      }
+
+      .nav {
+        ul {
+          display: flex;
+          gap: 2rem;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        li {
+          a {
+            text-decoration: none;
+            color: rgba(var(--colors-light));
+            font-weight: 500;
+            &:hover {
+              color: rgba(var(--colors-primary));
+            }
           }
         }
       }
@@ -111,18 +133,13 @@
 
     .actions {
       display: flex;
+      justify-content: flex-end;
       gap: 1rem;
+      a {
+        button {
+          width: 144px;
+        }
+      }
     }
-  }
-}
-
-@media (max-width: 768px) {
-  .nav ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .actions {
-    flex-direction: column;
   }
 }

@@ -9,6 +9,7 @@ import Link from 'next/link';
 export default function LoginPage() {
   return (
     <div className={styles.container}>
+      <div className={styles.noise}></div>
       <div className={styles.loginHead}>
         <div className={styles.logo}>
           <Link href="/">
@@ -18,8 +19,8 @@ export default function LoginPage() {
         </div>
         <div className={styles.image}>
           <XImage
-            src="/assets/login.png"
-            height={220}
+            src="/assets/images.png"
+            height={200}
             alt="Login"
             width={220}
           />
@@ -37,7 +38,7 @@ export default function LoginPage() {
             <Link href={'/'}>Forgot your password?</Link>
           </div>
           <div className={styles.nav}>
-            <XButton color="outline-primary">Sign In</XButton>
+            <XButton color="blur">Sign In</XButton>
             <Link href={'/register'}>
               {'Dont'} have an account yet? Sign up now.
             </Link>

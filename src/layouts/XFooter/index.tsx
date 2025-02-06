@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function XFooter({ bg }: { bg: 'light' | 'dark' }) {
   return (
-    <footer className={cn(bg === 'dark' ? styles.footer : styles.darkFooter)}>
+    <footer className={cn(bg !== 'dark' ? styles.footer : styles.darkFooter)}>
       <XContainer className={styles.container}>
         <div className={styles.logo}>
           <Link href="/">

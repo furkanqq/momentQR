@@ -3,17 +3,17 @@ $container-max-width: (
   medium: 640px,
   large: 768px,
   x-large: 1024px,
-  xx-large: 1320px,
+  xx-large: 1320px
 );
 
 .container {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
 
   @media (min-width: 640px) {
     max-width: map-get($container-max-width, medium);
+    padding: 0 15px;
   }
 
   @media (min-width: 768px) {
@@ -28,7 +28,6 @@ $container-max-width: (
     max-width: map-get($container-max-width, xx-large);
   }
 }
-
 
 .mobileContainer {
   background-color: rgba(var(--colors-light));

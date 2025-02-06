@@ -1,7 +1,13 @@
 import { MouseEventHandler } from 'react';
 
 export interface IXButtonProps {
-  color: 'outline-tertiary' | 'outline-primary' | 'primary' | 'light';
+  color:
+    | 'outline-secondary'
+    | 'outline-tertiary'
+    | 'outline-primary'
+    | 'primary'
+    | 'light'
+    | 'blur';
   type?: undefined | 'submit' | 'button' | 'reset';
   onClick?: MouseEventHandler | undefined;
   className?: undefined | string;
