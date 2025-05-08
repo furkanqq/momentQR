@@ -18,11 +18,12 @@ export default function SharingPage() {
   const [viewPhoto, setViewPhoto] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      console.log(imageUrl, 'imageUrl');
-      setPhotos((prevPhotos) => [...prevPhotos, imageUrl]);
+    const files = event.target.files;
+    if (files) {
+      const imageUrls = Array.from(files).map((file) =>
+        URL.createObjectURL(file)
+      );
+      setPhotos((prevPhotos) => [...prevPhotos, ...imageUrls]);
     }
   };
 
@@ -96,8 +97,9 @@ export default function SharingPage() {
                   <input
                     onChange={handleFileChange}
                     style={{ display: 'none' }}
-                    accept="image/*"
+                    accept="image/*,video/*"
                     type="file"
+                    multiple
                   />
                 </label>
 

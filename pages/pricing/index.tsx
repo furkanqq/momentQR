@@ -25,7 +25,7 @@ export default function AboutPage() {
         bg="light"
       />
       <div className={styles.image}>
-        <XImage src="/assets/s.svg" alt="About us" height={100} width={100} />
+        <XImage src="/assets/s.png" alt="About us" height={100} width={100} />
       </div>
       <XSection
         content={<SectionContentTwo />}

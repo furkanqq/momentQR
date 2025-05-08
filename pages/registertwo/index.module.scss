@@ -30,13 +30,13 @@
     border-radius: 4px;
     backdrop-filter: blur(4px);
     background-color: rgba(var(--colors-tertiary), 0.5);
-    width: 660px;
+    width: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 12px;
+    gap: 24px;
     @media (max-width: 768px) {
       width: 90%;
     }
@@ -55,23 +55,18 @@
       color: rgba(var(--colors-light));
       display: flex;
       flex-direction: column;
+      gap: 0px;
       p {
         font-size: 24px;
       }
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-      .formInputs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
+      .warning {
+        color: rgba(var(--colors-secondary));
+        font-weight: 600;
+        font-size: 12px;
       }
     }
     button {
-      width: 100%;
+      width: 200px;
     }
     .privacy {
       color: rgba(var(--colors-light));

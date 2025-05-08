@@ -3,14 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 25vh;
-  background-color: rgba(var(--colors-primary));
+  height: 30vh;
+  background-color: rgba(var(--colors-dark));
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
-    opacity: 0.4;
+    object-position: center;
+    opacity: 0.6;
   }
 }
 

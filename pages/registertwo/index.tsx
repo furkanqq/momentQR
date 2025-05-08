@@ -5,7 +5,7 @@ import { XInput } from '@/src/components/XInput';
 
 import Link from 'next/link';
 
-export default function RegisterPage() {
+export default function Register2Page() {
   return (
     <div className={styles.container}>
       <div className={styles.noise}></div>
@@ -17,22 +17,16 @@ export default function RegisterPage() {
           </Link>
         </div>
         <div className={styles.info}>
-          <p>Create Your Account</p>
+          <p>We need your email address to complete the setup of your event.</p>
+          <div className={styles.warning}>
+            (Remember that you can only upload 10 images in the free section!)
+          </div>
         </div>
 
-        <form>
-          <div className={styles.formInputs}>
-            <XInput placeholder="Jhon" label="Ad" />
-            <XInput placeholder="Doe" label="Soyad" />
-            <XInput placeholder="*******" label="Şifre" />
-            <XInput placeholder="*******" label="Şifre Tekrar" />
-            <XInput placeholder="example@gmail.com" label="E-posta" />
-            <XInput placeholder="+90" label="Telefon" />
-          </div>
-          <Link href={'/'}>
-            <XButton color="primary">Continue</XButton>
-          </Link>
-        </form>
+        <XInput placeholder="E-posta" />
+        <Link href={'/'}>
+          <XButton color="primary">Continue</XButton>
+        </Link>
         <p className={styles.privacy}>
           By joining, you agree to our terms and conditions and{' '}
           <Link href={'/'}>privacy policy</Link>. If you would like to learn

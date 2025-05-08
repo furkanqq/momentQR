@@ -25,14 +25,14 @@ export default function AboutPage() {
         bg="light"
       />
       <div className={styles.image}>
-        <XImage src="/assets/s.svg" alt="About us" height={100} width={100} />
+        <XImage src="/assets/s.png" alt="About us" height={100} width={100} />
       </div>
       <XSection
         content={<SectionContentTwo />}
         image="/assets/login.png"
         reverse={false}
         // label="Lorem Ipsum"
-        bg="light"
+        bg="dark"
       />
 
       <XFooter bg="dark" />
@@ -57,7 +57,7 @@ function SectionContentTwo() {
         </p>
       </div>
       <Link href={'/'}>
-        <XButton color="primary">Continue</XButton>
+        <XButton color="light">Continue</XButton>
       </Link>
     </div>
   );

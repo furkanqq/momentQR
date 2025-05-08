@@ -11,3 +11,8 @@ export type IconType = {
   onClick?: (e: any) => void;
   fill?: undefined | string;
 };
+
+export interface NavLink {
+  label: string;
+  href: string;
+}

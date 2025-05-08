@@ -22,10 +22,10 @@ export default function AboutPage() {
         title={'Get to know us'}
         buttonTitle={''}
         button={false}
-        bg="light"
+        bg="dark"
       />
       <div className={styles.image}>
-        <XImage src="/assets/s.svg" alt="About us" height={100} width={100} />
+        <XImage src="/assets/s.png" alt="About us" height={100} width={100} />
       </div>
       <XSection
         content={<SectionContentTwo />}

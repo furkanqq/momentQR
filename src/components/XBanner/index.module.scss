@@ -1,11 +1,11 @@
 .banner {
-  background-color: rgba(var(--colors-secondary));
+  background-color: rgba(var(--colors-primary));
   position: relative;
   .container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 75vh;
+    height: 70vh;
     .image {
       width: 22%;
       display: flex;
@@ -33,14 +33,14 @@
       .title {
         font-size: 64px;
         font-weight: 700;
-        color: rgba(var(--colors-primary));
+        color: rgba(var(--colors-light));
         line-height: 76px;
         span {
-          color: rgba(var(--colors-tertiary));
+          color: rgba(var(--colors-secondary));
         }
       }
       p {
-        color: rgba(var(--colors-primary));
+        color: rgba(var(--colors-light));
         font-weight: 500;
         font-size: 14px;
         width: 60%;
@@ -58,13 +58,13 @@
 }
 
 .bannerLight {
-  background-color: rgba(var(--colors-primary));
+  background-color: rgba(var(--colors-tertiary));
   position: relative;
   .container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    height: 75vh;
+    height: 70vh;
     .image {
       width: 22%;
       display: flex;

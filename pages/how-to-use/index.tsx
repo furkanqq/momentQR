@@ -23,14 +23,14 @@ export default function HowToUsePage() {
         bg="dark"
       />
       <div className={styles.image}>
-        <XImage src="/assets/s.svg" alt="About us" height={100} width={100} />
+        <XImage src="/assets/s.png" alt="About us" height={100} width={100} />
       </div>
       <XSection
         content={<SectionContent />}
         image="/assets/login.png"
         label="Lorem Ipsum"
         reverse={false}
-        bg="dark"
+        bg="light"
       />
 
       <XFooter bg="light" />
