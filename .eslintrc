@@ -40,7 +40,7 @@
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
-    "quotes": ["error", "single"],
+    // "quotes": ["error", "single"],
     "react-hooks/exhaustive-deps": "off",
     "spaced-comment": "error",
     "perfectionist/sort-imports": [

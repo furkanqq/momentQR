@@ -26,3 +26,16 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.mySwiper{
+  padding-inline: 160px !important;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #fff;
+}
+
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #fff;
+}

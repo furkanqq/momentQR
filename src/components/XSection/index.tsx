@@ -21,11 +21,19 @@ export default function XSection({
 }: IProps) {
   return (
     <section className={cn(bg === 'dark' ? styles.dark : styles.light)}>
+      {bg === 'light' && <div className={styles.noise}></div>}
       <XContainer className={cn(styles.container, !reverse && styles.reverse)}>
-        <div className={styles.image}>
-          {label && <label className={styles.label}>{label}</label>}
-          <XImage src={image ? image : ''} alt="image" height={50} width={50} />
-        </div>
+        {image && (
+          <div className={styles.image}>
+            {label && <label className={styles.label}>{label}</label>}
+            <XImage
+              src={image ? image : ''}
+              alt="image"
+              height={50}
+              width={50}
+            />
+          </div>
+        )}
         <div className={styles.content}>{content}</div>
       </XContainer>
     </section>

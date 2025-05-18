@@ -18,13 +18,9 @@
       padding-right: 24px;
 
       .logo {
-        a {
-          text-decoration: none;
-          color: rgba(var(--colors-light));
-          font-size: 24px;
-          font-weight: 600;
-        }
+        position: relative;
         img {
+          object-fit: cover;
           height: 52px;
           cursor: pointer;
         }
@@ -119,15 +115,10 @@
       justify-content: space-between;
       gap: 4rem;
       padding-right: 24px;
-
       .logo {
-        a {
-          text-decoration: none;
-          color: rgba(var(--colors-secondary));
-          font-size: 24px;
-          font-weight: 600;
-        }
+        position: relative;
         img {
+          object-fit: cover;
           height: 52px;
           cursor: pointer;
         }
@@ -148,7 +139,7 @@
             color: rgba(var(--colors-light));
             font-weight: 500;
             &:hover {
-              color: rgba(var(--colors-primary));
+              color: rgba(var(--colors-secondary));
             }
           }
         }

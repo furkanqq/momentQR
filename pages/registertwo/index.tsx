@@ -13,7 +13,7 @@ export default function Register2Page() {
         <div className={styles.logo}>
           <Link href="/">
             {/* <XImage src="/assets/logo.png" alt="Logo" width={220} height={80} /> */}
-            photoBox
+            Moment-QR
           </Link>
         </div>
         <div className={styles.info}>
@@ -30,7 +30,7 @@ export default function Register2Page() {
         <p className={styles.privacy}>
           By joining, you agree to our terms and conditions and{' '}
           <Link href={'/'}>privacy policy</Link>. If you would like to learn
-          more about <Link href={'/'}>photoBox</Link>, visit our legal notice.
+          more about <Link href={'/'}>Moment-QR</Link>, visit our legal notice.
           By signing up, you also agree to receive marketing emails from us. You
           can revoke this consent at any time.
         </p>

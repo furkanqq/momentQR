@@ -1,9 +1,9 @@
 import { NavLink } from '../assets/type';
 
 export const navigationLinks: NavLink[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'How To Use?', href: '/how-to-use' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Areas Of Use', href: '/areas-of-use' }
+  { label: 'Ana Sayfa', href: '/' },
+  { label: 'Hakkımızda', href: '/about' },
+  { label: 'Nasıl Kullanılır?', href: '/how-to-use' },
+  { label: 'Fiyatlandırma', href: '/pricing' }
+  // { label: 'Alan Nasıl Kullanılır?', href: '/areas-of-use' }
 ];

@@ -5,7 +5,7 @@ interface IProps {
 }
 export default function AppLayout({ children }: IProps) {
   return (
-    <div className={fontPoppins.className} x-layout={'photobox'}>
+    <div className={fontPoppins.className} x-layout={'Moment-QR'}>
       {children}
     </div>
   );

@@ -1,6 +1,6 @@
 import styles from './index.module.scss';
 
-import { XButton } from '@/src/components/XButton';
+import SectionContentTwo from '@/src/components/XSectionContentTwo';
 import { XImage } from '@/src/components/XImage';
 import XSection from '@/src/components/XSection';
 import XBanner from '@/src/components/XBanner';
@@ -8,7 +8,6 @@ import XBanner from '@/src/components/XBanner';
 import AppLayout from '@/src/layouts/AppLayout';
 import XHeader from '@/src/layouts/XHeader';
 import XFooter from '@/src/layouts/XFooter';
-import Link from 'next/link';
 
 export default function AboutPage() {
   return (
@@ -16,10 +15,10 @@ export default function AboutPage() {
       <XHeader />
       <XBanner
         desc={
-          'We are a team of developers who are passionate about technology.'
+          'Misafirleriniz QR kodunu okutarak fotoğraf, video ve anı notlarını size özel oluşturulmuş albüm sayesinde kolayca paylaşabilir. Anılarınızı toplamak ve paylaşmak hiç bu kadar eğlenceli olmamıştı. Hemen başlayın ve her anı ölümsüzleştirin!'
         }
         image="/assets/images.png"
-        title={'Get to know us'}
+        title={'Fiyatlandırma'}
         buttonTitle={''}
         button={false}
         bg="light"
@@ -29,36 +28,13 @@ export default function AboutPage() {
       </div>
       <XSection
         content={<SectionContentTwo />}
-        image="/assets/login.png"
+        image="/assets/images.png"
         reverse={false}
         // label="Lorem Ipsum"
-        bg="light"
+        bg="dark"
       />
 
       <XFooter bg="dark" />
     </AppLayout>
-  );
-}
-
-function SectionContentTwo() {
-  return (
-    <div className={styles.sectionTwo}>
-      <div className={styles.content}>
-        <h1>
-          Test <span>New</span> Software
-        </h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor <span>incididunt</span> ut labore et dolore magna
-          aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          do eiusmod tempor incididunt ut <span>labore</span> et dolore magna
-          aliqua. Sed do eiusmod tempor incididunt ut labore et dolore magna
-          aliqua.
-        </p>
-      </div>
-      <Link href={'/'}>
-        <XButton color="primary">Continue</XButton>
-      </Link>
-    </div>
   );
 }

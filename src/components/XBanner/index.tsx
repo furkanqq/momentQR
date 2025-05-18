@@ -24,6 +24,8 @@ export default function XBanner({
 }: XBannerProps) {
   return (
     <div className={cn(bg === 'dark' ? styles.banner : styles.bannerLight)}>
+      {bg === 'dark' && <div className={styles.noise}></div>}
+
       <XContainer className={styles.container}>
         <div className={styles.content}>
           <div className={styles.title}>{title}</div>

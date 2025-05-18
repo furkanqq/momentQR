@@ -1,7 +1,7 @@
 export const Base = {
   App: {
     Slogan: 'Görmen Gereken Her Şey Burada',
-    Name: 'PhotoBox'
+    Name: 'Moment-QR'
   },
   Key: {
     AuthToken: 'x-auth-token'

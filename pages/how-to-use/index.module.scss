@@ -14,22 +14,23 @@
   }
 }
 
-.sectionDetail {
-  display: flex;
-  flex-direction: column;
-  .box {
-    border-bottom: 1px solid rgba(var(--colors-tertiary));
-    padding-block: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    &:last-child {
-      border-bottom: none;
-    }
-    strong {
-      font-size: 24px;
-      font-weight: 600;
-    }
+.swiper {
+  width: 100%;
+  padding: 44px 44px;
+
+  h1 {
+    text-align: center;
+    color: rgba(var(--colors-secondary));
+    font-size: 52px;
+    margin-top: 52px;
+  }
+}
+
+.sectionTwoH1 {
+  h1 {
+    font-size: 72px;
+  }
+  p {
+    text-align: center;
   }
 }

@@ -14,7 +14,8 @@ export default function LoginPage() {
         <div className={styles.logo}>
           <Link href="/">
             {/* <XImage src="/assets/logo.png" alt="Logo" width={220} height={80} /> */}
-            photoBox
+            <XImage src="/assets/mqr.png" height={200} width={200} alt="Logo" />
+            {/* Moment-QR */}
           </Link>
         </div>
         <div className={styles.image}>
@@ -29,18 +30,17 @@ export default function LoginPage() {
       <div className={styles.loginFoot}>
         <div className={styles.content}>
           <div className={styles.text}>
-            Make Your <span>Memories</span>, {'Everyones'} <span>Memories</span>
-            !
+            <span>Anlarınızı</span> Herkesin <span>Anı</span> Haline Getirin!
           </div>
           <div className={styles.inputs}>
             <XInput placeholder="E-posta" />
             <XInput placeholder="Password" type="password" />
-            <Link href={'/'}>Forgot your password?</Link>
+            <Link href={'/'}>Şifrenizi mi unuttunuz?</Link>
           </div>
           <div className={styles.nav}>
-            <XButton color="blur">Sign In</XButton>
+            <XButton color="blur">Giriş Yap</XButton>
             <Link href={'/register'}>
-              {'Dont'} have an account yet? Sign up now.
+              Henüz bir hesabınız yok mu? Hemen Kayıt Ol.
             </Link>
           </div>
         </div>

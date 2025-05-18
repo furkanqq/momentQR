@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link'; // SCSS Module
 import cn from 'classnames';
 
+import { XImage } from '@/src/components/XImage';
+
 import { XContainer } from '../../components/XContainer';
 import { XButton } from '../../components/XButton';
 import { navigationLinks } from '@/src/config/nav';
@@ -29,10 +31,10 @@ export default function Header() {
       <XContainer className={styles.container}>
         <div className={styles.logoNav}>
           <div className={styles.logo}>
-            <Link href="/">
-              {/* <XImage src="/assets/logo.png" alt="Logo" width={220} height={80} /> */}
-              photoBox
-            </Link>
+            {/* <Link href="/"> */}
+            <XImage src="/assets/mq.png" width={100} height={60} alt="Logo" />
+            {/* Moment-QR */}
+            {/* </Link> */}
           </div>
 
           <nav className={styles.nav}>
@@ -55,10 +57,10 @@ export default function Header() {
 
         <div className={styles.actions}>
           <Link href={'/login'}>
-            <XButton color="outline-secondary">Login</XButton>
+            <XButton color="outline-secondary">Giriş Yap</XButton>
           </Link>
           <Link href={'/register'}>
-            <XButton color="outline-secondary">Register</XButton>
+            <XButton color="outline-secondary">Kayıt Ol</XButton>
           </Link>
         </div>
       </XContainer>

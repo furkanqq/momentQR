@@ -19,7 +19,7 @@ export default function AboutPage() {
           'We are a team of developers who are passionate about technology.'
         }
         image="/assets/images.png"
-        title={'Get to know us'}
+        title={'Bizi tanıyın'}
         buttonTitle={''}
         button={false}
         bg="dark"
