@@ -21,6 +21,7 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 
 export default function HomePage() {
+  console.log('s');
   const contents = [
     {
       content:
