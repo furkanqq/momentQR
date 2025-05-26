@@ -4,13 +4,14 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link'; // SCSS Module
 import cn from 'classnames';
 
+import { IconHamburger } from '@/src/assets/IconHamburger';
+
 import { XImage } from '@/src/components/XImage';
 
 import { XContainer } from '../../components/XContainer';
 import { XButton } from '../../components/XButton';
 import { navigationLinks } from '@/src/config/nav';
 import { useRouter } from 'next/router';
-import { IconHamburger } from '@/src/assets/IconHamburger';
 
 export default function XHeader() {
   const [scrollHeight, setScrollHeight] = useState(false);
@@ -66,7 +67,7 @@ export default function XHeader() {
         </div>
 
         <div className={styles.hamburger}>
-          <IconHamburger width={32} height={32}/>
+          <IconHamburger height={32} width={32} />
         </div>
       </XContainer>
     </header>
