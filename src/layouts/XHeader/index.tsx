@@ -11,7 +11,7 @@ import { XButton } from '../../components/XButton';
 import { navigationLinks } from '@/src/config/nav';
 import { useRouter } from 'next/router';
 
-export default function Header() {
+export default function XHeader() {
   const [scrollHeight, setScrollHeight] = useState(false);
   const { pathname } = useRouter();
 

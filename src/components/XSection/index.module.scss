@@ -1,5 +1,6 @@
 .light {
   height: 84vh;
+
   width: 100%;
   background: rgb(11, 99, 128);
   background: linear-gradient(
@@ -10,6 +11,9 @@
   );
   padding: 44px 0px;
   position: relative;
+  @media (max-width: 768px) {
+    height: fit-content;
+  }
 
   .noise {
     position: absolute;
@@ -19,12 +23,19 @@
     background-image: url('/assets/noise.png');
     background-size: contain;
     left: 0;
+    z-index: 0;
   }
 
   .container {
     display: flex;
     gap: 100px;
     height: 100%;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
 
     .image {
       position: relative;
@@ -34,6 +45,9 @@
       height: 100%;
       width: 50%;
       overflow: hidden;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
 
       .label {
         display: flex;
@@ -47,6 +61,9 @@
         padding: 12px 32px;
         width: 320px;
         text-align: right;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
       }
 
       img {
@@ -85,11 +102,20 @@
   background-color: rgba(var(--colors-tertiary));
   padding: 44px 0px;
   position: relative;
+  @media (max-width: 768px) {
+    height: fit-content;
+  }
 
   .container {
     display: flex;
     gap: 100px;
     height: 100%;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
 
     .image {
       position: relative;
@@ -99,6 +125,9 @@
       height: 100%;
       width: 50%;
       overflow: hidden;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
 
       .label {
         position: absolute;
@@ -110,6 +139,9 @@
         background-color: rgba(var(--colors-tertiary));
         padding: 8px 32px;
         width: 320px;
+        @media (max-width: 768px) {
+          font-size: 20px;
+        }
       }
 
       img {
@@ -124,8 +156,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 768px) {
+        width: 100%;
+        padding-inline: 24px;
+      }
       h1 {
         color: rgba(var(--colors-light)) !important;
+        @media (max-width: 768px) {
+          font-size: 36px;
+        }
       }
       strong {
         color: rgba(var(--colors-light));
@@ -139,6 +178,9 @@
 
 .reverse {
   flex-direction: row-reverse !important;
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+  }
   .image {
     position: relative;
     display: flex;
@@ -174,5 +216,9 @@
     justify-content: center;
     align-items: center;
     color: rgba(var(--colors-light));
+    @media (max-width: 768px) {
+      width: 100%;
+      padding-inline: 24px;
+    }
   }
 }

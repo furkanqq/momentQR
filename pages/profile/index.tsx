@@ -98,6 +98,22 @@ export default function SharingPage() {
     };
   }, [viewPhoto]);
 
+  useEffect(() => {
+    if (!viewPhoto) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setViewPhoto(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [viewPhoto]);
+
   return (
     <AppLayout>
       <div className={styles.bg}>
@@ -270,7 +286,7 @@ export default function SharingPage() {
             <div className={styles.imageHolder}>
               <label className={styles.addPhoto}>
                 <IconCamera height={32} width={32} />
-                <span>Add Photo</span>
+                <span>+ Ekle</span>
                 <input
                   onChange={handleFileChange}
                   style={{ display: 'none' }}

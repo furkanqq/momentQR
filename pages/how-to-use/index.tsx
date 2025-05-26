@@ -24,7 +24,7 @@ export default function HowToUsePage() {
       <XBanner
         desc={'Hadi sadece 5 adımda bu süreci birlikte keşfedelim!'}
         title={'Nasıl Kullanılır?'}
-        image="/assets/images.png"
+        image="/assets/useP.svg"
         buttonTitle={''}
         button={false}
         bg="dark"

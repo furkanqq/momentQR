@@ -1,6 +1,7 @@
 .faqContainer {
   width: 100%;
   gap: 24px;
+  z-index: 1;
   .faqTitle {
     color: rgba(var(--colors-light));
     width: 100%;
@@ -8,11 +9,17 @@
     justify-content: center;
     align-items: center;
     padding: 0px 88px;
+    @media (max-width: 768px) {
+      padding: 0px 24px;
+    }
 
     h1 {
       text-align: center;
       font-size: 52px;
       margin-bottom: 44px;
+      @media (max-width: 768px) {
+        font-size: 36px;
+      }
     }
   }
   .faqList {
@@ -20,6 +27,9 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    @media (max-width: 768px) {
+      padding: 0px 24px;
+    }
 
     .faqItem {
       border: 1px solid rgba(var(--colors-secondary));

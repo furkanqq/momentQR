@@ -1,5 +1,3 @@
-
-
 .swiper {
   width: 100%;
 
@@ -8,6 +6,10 @@
     color: rgba(var(--colors-light));
     font-size: 52px;
     margin-top: 52px;
+    @media (max-width: 768px) {
+      font-size: 36px;
+      margin-top: 44px;
+    }
   }
 }
 

@@ -40,7 +40,7 @@ export default function AboutPage() {
         desc={
           'Moment-QR, etkinlikleriniz için özel olarak tasarlanmış bir fotoğraf ve video paylaşım platformudur. Her etkinlik için özel QR kodları oluşturarak, misafirlerinizin çektiği her anı hızlıca ve kolayca toplamanızı sağlıyoruz. Etkinlik boyunca ve sonrasında, bu QR kodları kullanarak misafirlerinizin fotoğraflarını ve videolarını tek bir yerde birleştirebilirsiniz.'
         }
-        image="/assets/images.png"
+        image="/assets/aboutP.svg"
         title={'Bizi tanıyın'}
         buttonTitle={''}
         button={false}
@@ -51,7 +51,7 @@ export default function AboutPage() {
       </div>
       <XSection
         content={<SectionContentOne contents={contents} />}
-        image="/assets/login.png"
+        image="/assets/aboutusP.svg"
         label="Biz Kimiz?"
         reverse={true}
         bg="dark"

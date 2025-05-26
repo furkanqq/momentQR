@@ -33,7 +33,7 @@ export default function XBanner({
           {button && <XButton color="primary">{buttonTitle}</XButton>}
         </div>
         <div className={styles.image}>
-          <XImage alt="banner-image" height={150} src={image} width={150} />
+          <XImage alt="banner-image" height={200} src={image} width={200} />
         </div>
       </XContainer>
     </div>
