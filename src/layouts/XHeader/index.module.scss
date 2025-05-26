@@ -82,11 +82,19 @@
       display: flex;
       justify-content: flex-end;
       gap: 1rem;
+      @media (max-width: 768px) {
+        display: none;
+      }
       a {
         button {
           width: 144px;
         }
       }
+    }
+    .hamburger {
+      display: flex;
+      justify-content: flex-end;
+      color: rgba(var(--colors-tertiary));
     }
   }
 }
@@ -148,11 +156,19 @@
       display: flex;
       justify-content: flex-end;
       gap: 1rem;
+      @media (max-width: 768px) {
+        display: none;
+      }
       a {
         button {
           width: 144px;
         }
       }
+    }
+    .hamburger {
+      display: flex;
+      justify-content: flex-end;
+      color: rgba(var(--colors-secondary));
     }
   }
 }

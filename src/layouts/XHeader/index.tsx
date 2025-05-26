@@ -10,6 +10,7 @@ import { XContainer } from '../../components/XContainer';
 import { XButton } from '../../components/XButton';
 import { navigationLinks } from '@/src/config/nav';
 import { useRouter } from 'next/router';
+import { IconHamburger } from '@/src/assets/IconHamburger';
 
 export default function XHeader() {
   const [scrollHeight, setScrollHeight] = useState(false);
@@ -62,6 +63,10 @@ export default function XHeader() {
           <Link href={'/register'}>
             <XButton color="outline-secondary">Kayıt Ol</XButton>
           </Link>
+        </div>
+
+        <div className={styles.hamburger}>
+          <IconHamburger width={32} height={32}/>
         </div>
       </XContainer>
     </header>
