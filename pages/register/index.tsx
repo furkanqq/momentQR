@@ -45,11 +45,10 @@ export default function RegisterPage() {
         </form>
 
         <p className={styles.privacy}>
-          By joining, you agree to our terms and conditions and{' '}
-          <Link href={'/'}>privacy policy</Link>. If you would like to learn
-          more about <Link href={'/'}>Moment-QR</Link>, visit our legal notice.
-          By signing up, you also agree to receive marketing emails from us. You
-          can revoke this consent at any time.
+          Kayıt olarak, <Link href={'/'}>kullanım şartlarımızı</Link>,{' '}
+          <Link href={'/'}>gizlilik politikamızı</Link> ve tanıtım e-postaları
+          almayı kabul etmiş olursunuz. Daha fazla bilgi için yasal
+          bilgilendirme sayfamızı ziyaret edebilirsiniz.
         </p>
       </div>
       {otpModal ? (

@@ -13,7 +13,7 @@ export default function PriceTypePage() {
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={styles.priceContent}>
-            <h1>Paket</h1>
+            <h1>Standart Paket</h1>
             <ul>
               <li>
                 <span>✓</span> Lorem Ipsum has been the industrys standard dummy

@@ -1,6 +1,10 @@
 import styles from './index.module.scss';
 import cn from 'classnames';
 
+import { IconInstagram } from '@/src/assets/IconInstagram';
+import { IconFacebook } from '@/src/assets/IconFacebook';
+import { IconYoutube } from '@/src/assets/IconYoutube';
+
 import { XContainer } from '@/src/components/XContainer';
 import { XImage } from '@/src/components/XImage';
 
@@ -19,53 +23,59 @@ export default function XFooter({ bg }: { bg: 'light' | 'dark' }) {
         </div>
         <div className={styles.part}>
           <div>
-            <h4>Company</h4>
+            <h4>Hızlı Bağlantılar</h4>
             <ul>
               <li>
-                <Link href="/about">About Us</Link>
+                <Link href="/about">Hakkımızda</Link>
               </li>
               <li>
-                <Link href="/contact">Contact Us</Link>
+                <Link href="/contact">İletişim</Link>
+              </li>
+              <li>
+                <Link href="/how-to-use">Nasıl Kullanılır?</Link>
+              </li>
+              <li>
+                <Link href="/pricing">Fiyatlandırma</Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4>Company</h4>
+            <h4>Bilgilendirme</h4>
             <ul>
               <li>
-                <Link href="/about">About Us</Link>
+                <Link href="#">Gizlilik Politikası</Link>
               </li>
               <li>
-                <Link href="/contact">Contact Us</Link>
+                <Link href="#">Şartlar ve Koşullar</Link>
               </li>
               <li>
-                <Link href="/contact">Contact Us</Link>
+                <Link href="#">Mesafeli Satış Sözleşmesi</Link>
               </li>
               <li>
-                <Link href="/contact">Contact Us</Link>
+                <Link href="/contact">Destek</Link>
+              </li>
+              <li>
+                <Link href="/#faq">S.S.S</Link>
               </li>
             </ul>
           </div>
           <div>
-            <h4>Company</h4>
+            <h4>İletişim</h4>
             <ul>
               <li>
-                <Link href="/about">About Us</Link>
+                <Link href="#">momentiletisim@gmail.com</Link>
               </li>
-              <li>
-                <Link href="/contact">Contact Us</Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Company</h4>
-            <ul>
-              <li>
-                <Link href="/about">About Us</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact Us</Link>
-              </li>
+              <div className={styles.circleList}>
+                <div>
+                  <IconInstagram height={18} width={18} />
+                </div>
+                <div>
+                  <IconYoutube height={18} width={18} />
+                </div>
+                <div>
+                  <IconFacebook height={18} width={18} />
+                </div>
+              </div>
             </ul>
           </div>
         </div>
@@ -73,11 +83,6 @@ export default function XFooter({ bg }: { bg: 'light' | 'dark' }) {
       <div className={styles.footerFooter}>
         <XContainer className={styles.footerContainer}>
           <span>© 2023 murkiSoft. All rights reserved.</span>
-          <div className={styles.circleList}>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
         </XContainer>
       </div>
     </footer>

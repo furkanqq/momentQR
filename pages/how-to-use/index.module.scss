@@ -17,6 +17,9 @@
 .swiper {
   width: 100%;
   padding: 44px 44px;
+  @media (max-width: 768px) {
+    padding: 12px;
+  }
 
   h1 {
     text-align: center;

@@ -13,6 +13,7 @@ type ContainerProps = {
   px?: number;
   ps?: number;
   pe?: number;
+  id?: string;
 };
 
 export const XContainer = (props: ContainerProps) => {
@@ -27,7 +28,8 @@ export const XContainer = (props: ContainerProps) => {
     py,
     px,
     ps,
-    pe
+    pe,
+    id
   } = props;
   const dynamicStyle: React.CSSProperties = {
     paddingRight: pe ?? px,
@@ -39,12 +41,17 @@ export const XContainer = (props: ContainerProps) => {
   };
 
   if (type === 'web') {
-    return <div className={cn(styles.container, className)}>{children}</div>;
+    return (
+      <div className={cn(styles.container, className)} id={id}>
+        {children}
+      </div>
+    );
   } else {
     return (
       <div
         className={cn(styles.mobileContainer, className)}
-        style={dynamicStyle}>
+        style={dynamicStyle}
+        id={id}>
         <div
           style={{
             paddingRight: !(px || ps || pe) ? 16 : 0,

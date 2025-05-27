@@ -44,7 +44,7 @@ export default function XFAQ() {
   };
 
   return (
-    <XContainer className={styles.faqContainer}>
+    <XContainer className={styles.faqContainer} id="faq">
       <div className={styles.faqTitle}>
         <h1>Sıkça Sorulan Sorular</h1>
       </div>

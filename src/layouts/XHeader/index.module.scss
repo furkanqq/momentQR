@@ -92,9 +92,12 @@
       }
     }
     .hamburger {
-      display: flex;
-      justify-content: flex-end;
-      color: rgba(var(--colors-tertiary));
+      display: none;
+      @media (max-width: 768px) {
+        display: flex;
+        justify-content: flex-end;
+        color: rgba(var(--colors-secondary));
+      }
     }
   }
 }
@@ -166,9 +169,12 @@
       }
     }
     .hamburger {
-      display: flex;
-      justify-content: flex-end;
-      color: rgba(var(--colors-secondary));
+      display: none;
+      @media (max-width: 768px) {
+        display: flex;
+        justify-content: flex-end;
+        color: rgba(var(--colors-secondary));
+      }
     }
   }
 }

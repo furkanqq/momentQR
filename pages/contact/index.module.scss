@@ -15,6 +15,9 @@
 }
 .contact {
   padding: 88px 0px;
+  @media (max-width: 768px) {
+    padding: 60px 24px;
+  }
   h1 {
     text-align: center;
     color: rgba(var(--colors-secondary));
@@ -33,10 +36,16 @@
     gap: 24px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
     .formGroup {
       &:nth-last-child(2) {
         // border: 1px solid red;
         grid-column: span 2;
+        @media (max-width: 768px) {
+          grid-column: span 1;
+        }
       }
     }
     button {
@@ -44,6 +53,10 @@
       height: 52px;
       font-size: 16px;
       margin-top: 12px;
+      @media (max-width: 768px) {
+        grid-column: span 1;
+        font-size: 14px;
+      }
     }
   }
 }
