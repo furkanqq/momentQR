@@ -345,8 +345,7 @@
       }
     }
     .filter {
-      min-height: 60px;
-      height: fit-content;
+      height: 60px;
     }
     .body {
       height: 100%;
@@ -359,26 +358,22 @@
         padding-inline: 8px;
       }
       .imageHolder {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
         width: 100%;
         height: fit-content;
-        gap: 8px;
-        @media (max-width: 1024px) {
-          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        }
-        @media (max-width: 768px) {
-          grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-        }
+        gap: 4px;
         .addPhoto {
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          width: 200px;
           height: 200px;
           border: 3px dashed rgba(var(--colors-secondary));
           color: rgba(var(--colors-secondary));
           border-radius: 8px;
+          // background-color: rgba(var(--colors-primary), 0.8);
           cursor: pointer;
           text-align: center;
           span {
@@ -388,28 +383,22 @@
           }
           @media (max-width: 768px) {
             height: 108px;
+            width: 108px;
           }
         }
         .photo {
+          width: 200px;
           height: 200px;
           overflow: hidden;
           position: relative;
-          cursor: pointer;
-          border-radius: 8px;
-          transform: scale(1);
-          transition: transform 0.2s ease-in-out;
-          @media (max-width: 768px) {
-            height: 108px;
-          }
-          &:hover {
-            transform: scale(0.98);
-            transition: transform 0.2s ease-in-out;
-            border: 1px solid rgba(var(--colors-secondary));
-          }
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+          }
+          @media (max-width: 768px) {
+            width: 108px;
+            height: 108px;
           }
         }
       }

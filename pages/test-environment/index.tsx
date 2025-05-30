@@ -8,11 +8,9 @@ import { IconLeft } from '@/src/assets/IconLeft';
 import { IconQR } from '@/src/assets/IconQR';
 
 import { XContainer } from '@/src/components/XContainer';
-import { XTabView } from '@/src/components/XTabView';
 import { XButton } from '@/src/components/XButton';
 import { XImage } from '@/src/components/XImage';
 import { XInput } from '@/src/components/XInput';
-import XSwitch from '@/src/components/XSwitch';
 
 import AppLayout from '@/src/layouts/AppLayout';
 import { useEffect, useState } from 'react';
@@ -116,55 +114,6 @@ export default function SharingPage() {
     };
   }, [viewPhoto]);
 
-  const tabs = [
-    {
-      content: (
-        <div className={styles.body}>
-          <div className={styles.imageHolder}>
-            <label className={styles.addPhoto}>
-              <IconCamera height={32} width={32} />
-              <span>+ Ekle</span>
-              <input
-                onChange={handleFileChange}
-                style={{ display: 'none' }}
-                accept="image/*,video/*"
-                type="file"
-                multiple
-              />
-            </label>
-
-            {photos.map((photo, index) => (
-              <div
-                onClick={() => setViewPhoto(photo)}
-                className={styles.photo}
-                key={index}>
-                <XImage alt={`Photo ${index + 1}`} src={photo} fill />
-              </div>
-            ))}
-          </div>
-        </div>
-      ),
-      title: 'Albüm'
-    },
-    {
-      content: (
-        <div className={styles.body}>
-          <div className={styles.imageHolder}>
-            {photos.map((photo, index) => (
-              <div
-                onClick={() => setViewPhoto(photo)}
-                className={styles.photo}
-                key={index}>
-                <XImage alt={`Photo ${index + 1}`} src={photo} fill />
-              </div>
-            ))}
-          </div>
-        </div>
-      ),
-      title: 'Onay Bekleyenler'
-    }
-  ];
-
   return (
     <AppLayout>
       <div className={styles.bg}>
@@ -224,13 +173,6 @@ export default function SharingPage() {
                       />
                     </div>
                   )}
-                </div>
-                <div>
-                  <XSwitch
-                    label={
-                      'Misafirlerinizin yüklediği fotoğrafları siz onayladıktan sonra herkesin görmesini ister misiniz?'
-                    }
-                  />
                 </div>
 
                 <div>
@@ -338,8 +280,31 @@ export default function SharingPage() {
               </div>
             </div>
           </div>
-          <div className={styles.filter}>
-            <XTabView tabs={tabs} />
+          <div className={styles.filter}></div>
+
+          <div className={styles.body}>
+            <div className={styles.imageHolder}>
+              <label className={styles.addPhoto}>
+                <IconCamera height={32} width={32} />
+                <span>+ Ekle</span>
+                <input
+                  onChange={handleFileChange}
+                  style={{ display: 'none' }}
+                  accept="image/*,video/*"
+                  type="file"
+                  multiple
+                />
+              </label>
+
+              {photos.map((photo, index) => (
+                <div
+                  onClick={() => setViewPhoto(photo)}
+                  className={styles.photo}
+                  key={index}>
+                  <XImage alt={`Photo ${index + 1}`} src={photo} fill />
+                </div>
+              ))}
+            </div>
           </div>
         </XContainer>
         {/* <div className={styles.footer}></div> */}

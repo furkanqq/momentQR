@@ -37,6 +37,9 @@ export default function XFooter({ bg }: { bg: 'light' | 'dark' }) {
               <li>
                 <Link href="/pricing">Fiyatlandırma</Link>
               </li>
+              <li>
+                <Link href="/test-environment">Test Ortamı</Link>
+              </li>
             </ul>
           </div>
           <div>

@@ -4,8 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link'; // SCSS Module
 import cn from 'classnames';
 
-import { IconHamburger } from '@/src/assets/IconHamburger';
-
+import { XMobileMenu } from '@/src/components/XMobileMenu';
 import { XImage } from '@/src/components/XImage';
 
 import { XContainer } from '../../components/XContainer';
@@ -67,7 +66,7 @@ export default function XHeader() {
         </div>
 
         <div className={styles.hamburger}>
-          <IconHamburger height={32} width={32} />
+          <XMobileMenu />
         </div>
       </XContainer>
     </header>

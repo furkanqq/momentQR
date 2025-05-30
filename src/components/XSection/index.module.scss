@@ -1,6 +1,5 @@
 .light {
   height: 84vh;
-
   width: 100%;
   background: rgb(11, 99, 128);
   background: linear-gradient(
@@ -85,6 +84,9 @@
       }
       h1 {
         color: rgba(var(--colors-light)) !important;
+        @media (max-width: 768px) {
+          font-size: 36px;
+        }
       }
       h2 {
         color: rgba(var(--colors-light)) !important;
@@ -137,7 +139,7 @@
         font-weight: 600;
         color: rgba(var(--colors-secondary));
         background-color: rgba(var(--colors-tertiary));
-        padding: 8px 32px;
+        padding: 12px 32px;
         width: 320px;
         @media (max-width: 768px) {
           font-size: 20px;

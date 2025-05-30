@@ -11,6 +11,7 @@ import XFAQ from '@/src/components/XFAQ';
 import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 // Import Swiper React components
 import { SwiperSlide, Swiper } from 'swiper/react';
+import { contents } from '@/src/config/contents';
 import AppLayout from '@/src/layouts/AppLayout';
 import XHeader from '@/src/layouts/XHeader';
 import XBanner from '@/src/layouts/XBanner';
@@ -21,27 +22,6 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 
 export default function HomePage() {
-  const contents = [
-    {
-      content:
-        'Düğün, nişan gibi etkinliklerinizde en güzel anılarını misafirlerinizden toplamak için Moment-QR kullanın. Misafirleriniz, QR kodu tarayarak düğün boyunca çektikleri fotoğraf ve videoları kolayca paylaşabilir.',
-      title: 'Düğün Etkinlikleri'
-    },
-    {
-      content:
-        'Fuarlarda standınıza gelen ziyaretçilerin deneyimlerini kaydedin. Fuarın tüm önemli anlarını ve standınızdaki etkileşimleri tek bir galeride toplayabilirsiniz.',
-      title: 'Fuar'
-    },
-    {
-      content:
-        'Festival boyunca katılımcılarınızın çektikleri fotoğraf ve videoları kolayca toplayın.',
-      title: 'Festival'
-    },
-    {
-      content: 'Moment-QR ile doğum günü partinizin tüm anılarını toplayın.',
-      title: 'Doğum Günü'
-    }
-  ];
   return (
     <AppLayout>
       <XHeader />
@@ -60,7 +40,7 @@ export default function HomePage() {
             Moment-QR, uygulama gerektirmeden kolayca kullanılabilen bir platformdur. Web sitemizden satın aldığınız paketinizi kolayca masaüstü veya mobil cihazınızdan yönetebilirsiniz. Misafirleriniz veya etkinlik katılımcılarınız masaların üzerinde bulunan QR kodu okutup kolayca fotoğraf, video ve anı ile ilgili notunu bırakabilir."
             h1="Misafir Kaydı Yok!"
             button="Hemen Satın Al"
-            href="/"
+            href="/register"
           />
         }
         image="/assets/noregister.svg"
@@ -172,13 +152,27 @@ export default function HomePage() {
             p="Moment-QR, etkinliğinizin en özel anılarını misafirlerinizin gözünden kolayca toplamanızı sağlayan yenilikçi bir fotoğraf ve video paylaşım platformudur. Etkinliğinize özel olarak oluşturulan QR kod sayesinde, misafirleriniz bu QR kodu okutarak fotoğraf, video ve anı notlarını anında paylaşabilirler. Bu sayede, etkinliğinizin her anını farklı bakış açılarıyla zenginleştirir ve tüm güzel anıları tek bir yerde toplayabilirsiniz."
             h1="Etkinliğinizin Her Anını Yakalayın!"
             button="Hemen Satın Al"
-            href="/"
+            href="/register"
           />
         }
         image="/assets/everymoment.svg"
         reverse={true}
         // label="Lorem Ipsum"
         bg="dark"
+      />
+      <XSection
+        content={
+          <SectionContentTwo
+            p="Satın almadan önce nasıl çalıştığını görmek ister misiniz? Size özel hazırladığımız test ortamı sayesinde inceleyebilir, ihtiyaçlarınıza uygun olup olmadığını test edebilirsiniz. Bu sayede daha güvenli ve daha verimli adımlar atabilirsiniz."
+            h1="Hizmetimizi Deneyimleyin"
+            href="/test-environment"
+            button="Hemen Dene"
+          />
+        }
+        image="/assets/testing.svg"
+        reverse={false}
+        // label="Lorem Ipsum"
+        bg="light"
       />
       {/* <XSection
         content={<SectionBoxes />}

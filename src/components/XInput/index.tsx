@@ -29,6 +29,7 @@ interface IProps {
   label?: string;
   value?: string;
   name?: string;
+  id?: string;
 }
 
 export const XInput: React.FC<IProps> = ({
@@ -46,7 +47,8 @@ export const XInput: React.FC<IProps> = ({
   name,
   type,
   icon,
-  ref
+  ref,
+  id
 }) => {
   const [isShowEye, setIsShowEye] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
@@ -86,6 +88,7 @@ export const XInput: React.FC<IProps> = ({
           value={value}
           name={name}
           ref={ref}
+          id={id}
         />
         {type === 'password' && (
           <div
