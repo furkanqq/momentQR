@@ -14,12 +14,13 @@ import { XImage } from '@/src/components/XImage';
 import { XInput } from '@/src/components/XInput';
 import XSwitch from '@/src/components/XSwitch';
 
+import { useEffect, useState, useRef } from 'react';
 import AppLayout from '@/src/layouts/AppLayout';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 interface FirstInfo {
   partnerName: string;
+  permission: boolean;
   mainPhoto: string;
   name: string;
 }
@@ -29,7 +30,9 @@ export default function SharingPage() {
   const [viewPhoto, setViewPhoto] = useState<string | null>(null);
   const [firstModal, setFirstModal] = useState<boolean>(true);
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
+  const [settingsModal, setSettingsModal] = useState<boolean>(false);
   const [firstInfo, setFirstInfo] = useState<FirstInfo>({
+    permission: false,
     partnerName: '',
     mainPhoto: '',
     name: ''
@@ -169,123 +172,28 @@ export default function SharingPage() {
     <AppLayout>
       <div className={styles.bg}>
         {firstModal && (
-          <div className={styles.firstModal}>
-            <div className={styles.content}>
-              <div className={styles.logo}>
-                <XImage
-                  src="/assets/mqr.png"
-                  height={200}
-                  width={200}
-                  alt="Logo"
-                />
-                {/* <h1>Hoş Geldiniz!</h1> */}
-              </div>
-              <form onSubmit={(e) => handleFirstInfoForm(e)}>
-                <div className={styles.names}>
-                  <XInput
-                    onChange={(value) =>
-                      setFirstInfo({ ...firstInfo, name: value })
-                    }
-                    className={styles.input}
-                    value={firstInfo.name}
-                    placeholder="Adınız"
-                    label="Adınız"
-                    type="text"
-                  />
-                  <XInput
-                    onChange={(value) =>
-                      setFirstInfo({ ...firstInfo, partnerName: value })
-                    }
-                    placeholder="Partnerinizin Adı"
-                    value={firstInfo.partnerName}
-                    label="Partnerinizin Adı"
-                    className={styles.input}
-                    type="text"
-                  />
-                </div>
-                <div className={styles.imageHolder}>
-                  <label className={styles.addPhoto}>
-                    <IconCamera height={32} width={32} />
-                    <span>Fotoğrafınız</span>
-                    <input
-                      style={{ display: 'none' }}
-                      onChange={handleFirstInfo}
-                      accept="image/*,video/*"
-                      type="file"
-                    />
-                  </label>
-
-                  {firstInfo.mainPhoto && (
-                    <div className={styles.photo}>
-                      <XImage
-                        src={firstInfo.mainPhoto}
-                        alt={'mainPhoto'}
-                        fill
-                      />
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <XSwitch
-                    label={
-                      'Misafirlerinizin yüklediği fotoğrafları siz onayladıktan sonra herkesin görmesini ister misiniz?'
-                    }
-                  />
-                </div>
-
-                <div>
-                  <XButton
-                    className={styles.button}
-                    color="outline-secondary"
-                    type="submit"
-                    fullWidth>
-                    Devam Et
-                  </XButton>
-
-                  <div className={styles.miniText}>
-                    Fotoğrafınızı İstediğiniz Zaman Değiştirmek Mümkündür.
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
+          <FirstModal
+            handleFirstInfoForm={handleFirstInfoForm}
+            handleFirstInfo={handleFirstInfo}
+            setFirstInfo={setFirstInfo}
+            firstInfo={firstInfo}
+          />
         )}
         {deleteModal && (
-          <div className={styles.deleteModal}>
-            <div className={styles.content}>
-              <div className={styles.logo}>
-                <XImage
-                  src="/assets/mqr.png"
-                  height={200}
-                  width={200}
-                  alt="Logo"
-                />
-              </div>
-              <div className={styles.sure}>
-                <h1>Silmek İstediğinize Emin Misiniz?</h1>
-                <p>
-                  Bu işlem geri alınamaz ve fotoğrafınız kalıcı olarak
-                  silinecektir.
-                </p>
-                <div className={styles.buttons}>
-                  <XButton
-                    onClick={() => setDeleteModal(false)}
-                    className={styles.button}
-                    color="outline-secondary"
-                    fullWidth>
-                    İptal
-                  </XButton>
-                  <XButton
-                    className={styles.button}
-                    onClick={deletePhoto}
-                    color="blur"
-                    fullWidth>
-                    Sil
-                  </XButton>
-                </div>
-              </div>
-            </div>
-          </div>
+          <DeleteModal
+            setDeleteModal={setDeleteModal}
+            deletePhoto={deletePhoto}
+          />
+        )}
+        {settingsModal && (
+          <SettingsModal
+            handleFirstInfoForm={handleFirstInfoForm}
+            setSettingsModal={setSettingsModal}
+            handleFirstInfo={handleFirstInfo}
+            setFirstInfo={setFirstInfo}
+            firstInfo={firstInfo}
+            settingsModal
+          />
         )}
         {viewPhoto && viewPhoto.length > 0 && (
           <div className={styles.modal}>
@@ -296,7 +204,7 @@ export default function SharingPage() {
               <IconDownload />
             </div>
             <div onClick={() => setDeleteModal(true)} className={styles.close}>
-              <IconClose />
+              Sil
             </div>
             <div className={styles.modalContent}>
               <XImage alt="View Photo" src={viewPhoto} fill />
@@ -329,7 +237,9 @@ export default function SharingPage() {
               </div>
             </div>
             <div className={styles.settings}>
-              <div className={styles.icon}>
+              <div
+                onClick={() => setSettingsModal(true)}
+                className={styles.icon}>
                 <IconSettings height={24} width={24} />
               </div>
 
@@ -347,3 +257,238 @@ export default function SharingPage() {
     </AppLayout>
   );
 }
+
+const FirstModal: React.FC<{
+  handleFirstInfoForm: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleFirstInfo: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setFirstInfo: React.Dispatch<React.SetStateAction<FirstInfo>>;
+  firstInfo: FirstInfo;
+}> = ({ handleFirstInfoForm, handleFirstInfo, setFirstInfo, firstInfo }) => {
+  return (
+    <div className={styles.firstModal}>
+      <div className={styles.content}>
+        <div className={styles.logo}>
+          <XImage src="/assets/mqr.png" height={200} width={200} alt="Logo" />
+          {/* <h1>Hoş Geldiniz!</h1> */}
+        </div>
+        <form onSubmit={(e) => handleFirstInfoForm(e)}>
+          <div className={styles.names}>
+            <XInput
+              onChange={(value) => setFirstInfo({ ...firstInfo, name: value })}
+              className={styles.input}
+              value={firstInfo.name}
+              placeholder="Adınız"
+              label="Adınız"
+              type="text"
+            />
+            <XInput
+              onChange={(value) =>
+                setFirstInfo({ ...firstInfo, partnerName: value })
+              }
+              placeholder="Partnerinizin Adı"
+              value={firstInfo.partnerName}
+              label="Partnerinizin Adı"
+              className={styles.input}
+              type="text"
+            />
+          </div>
+          <div className={styles.imageHolder}>
+            <label className={styles.addPhoto}>
+              <IconCamera height={32} width={32} />
+              <span>Fotoğrafınız</span>
+              <input
+                style={{ display: 'none' }}
+                onChange={handleFirstInfo}
+                accept="image/*,video/*"
+                type="file"
+              />
+            </label>
+
+            {firstInfo.mainPhoto && (
+              <div className={styles.photo}>
+                <XImage src={firstInfo.mainPhoto} alt={'mainPhoto'} fill />
+              </div>
+            )}
+          </div>
+          <div>
+            <XSwitch
+              label={
+                'Misafirlerinizin yüklediği fotoğrafları siz onayladıktan sonra herkesin görmesini ister misiniz?'
+              }
+              onChange={(value) =>
+                setFirstInfo({ ...firstInfo, permission: value })
+              }
+              defaultChecked={firstInfo.permission}
+            />
+          </div>
+
+          <div>
+            <XButton
+              className={styles.button}
+              color="outline-secondary"
+              type="submit"
+              fullWidth>
+              Devam Et
+            </XButton>
+
+            <div className={styles.miniText}>
+              Fotoğrafınızı İstediğiniz Zaman Değiştirmek Mümkündür.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+const DeleteModal: React.FC<{
+  setDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
+  deletePhoto: () => void;
+}> = ({ setDeleteModal, deletePhoto }) => {
+  return (
+    <div className={styles.deleteModal}>
+      <div className={styles.content}>
+        <div className={styles.logo}>
+          <XImage src="/assets/mqr.png" height={200} width={200} alt="Logo" />
+        </div>
+        <div className={styles.sure}>
+          <h1>Silmek İstediğinize Emin Misiniz?</h1>
+          <p>
+            Bu işlem geri alınamaz ve fotoğrafınız kalıcı olarak silinecektir.
+          </p>
+          <div className={styles.buttons}>
+            <XButton
+              onClick={() => setDeleteModal(false)}
+              className={styles.button}
+              color="outline-secondary"
+              fullWidth>
+              İptal
+            </XButton>
+            <XButton
+              className={styles.button}
+              onClick={deletePhoto}
+              color="blur"
+              fullWidth>
+              Sil
+            </XButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const SettingsModal: React.FC<{
+  handleFirstInfoForm: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleFirstInfo: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  setSettingsModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setFirstInfo: React.Dispatch<React.SetStateAction<FirstInfo>>;
+  settingsModal: boolean;
+  firstInfo: FirstInfo;
+}> = ({
+  handleFirstInfoForm,
+  setSettingsModal,
+  handleFirstInfo,
+  settingsModal,
+  setFirstInfo,
+  firstInfo
+}) => {
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (e: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      setSettingsModal(false);
+    }
+  };
+
+  useEffect(() => {
+    if (settingsModal) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [settingsModal]);
+
+  return (
+    <>
+      <div
+        className={`${styles.menuOverlay} ${settingsModal ? styles.open : ''}`}>
+        <div className={styles.menuContent} ref={menuRef}>
+          <button
+            onClick={() => setSettingsModal(false)}
+            className={styles.closeButton}>
+            <IconClose height={28} width={28} />
+          </button>
+          <form onSubmit={(e) => handleFirstInfoForm(e)}>
+            <div className={styles.names}>
+              <XInput
+                onChange={(value) =>
+                  setFirstInfo({ ...firstInfo, name: value })
+                }
+                className={styles.input}
+                value={firstInfo.name}
+                placeholder="Adınız"
+                label="Adınız"
+                type="text"
+              />
+              <XInput
+                onChange={(value) =>
+                  setFirstInfo({ ...firstInfo, partnerName: value })
+                }
+                placeholder="Partnerinizin Adı"
+                value={firstInfo.partnerName}
+                label="Partnerinizin Adı"
+                className={styles.input}
+                type="text"
+              />
+            </div>
+            <div className={styles.imageHolder}>
+              <label className={styles.addPhoto}>
+                <IconCamera height={32} width={32} />
+                <span>Fotoğrafınız</span>
+                <input
+                  style={{ display: 'none' }}
+                  onChange={handleFirstInfo}
+                  accept="image/*,video/*"
+                  type="file"
+                />
+              </label>
+
+              {firstInfo.mainPhoto && (
+                <div className={styles.photo}>
+                  <XImage src={firstInfo.mainPhoto} alt={'mainPhoto'} fill />
+                </div>
+              )}
+            </div>
+            <div>
+              <XSwitch
+                label={
+                  'Misafirlerinizin yüklediği fotoğrafları siz onayladıktan sonra herkesin görmesini ister misiniz?'
+                }
+                onChange={(value) =>
+                  setFirstInfo({ ...firstInfo, permission: value })
+                }
+                defaultChecked={firstInfo.permission}
+              />
+            </div>
+
+            <div>
+              <XButton
+                onClick={() => setSettingsModal(false)}
+                className={styles.button}
+                color="outline-secondary"
+                type="submit"
+                fullWidth>
+                Değişiklikleri Kaydet
+              </XButton>
+            </div>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+};

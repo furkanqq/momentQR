@@ -51,17 +51,21 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
+        @media (max-width: 768px) {
+          gap: 16px;
+        }
         .miniText {
           font-size: 10px;
           color: rgba(var(--colors-secondary));
           text-align: center;
-          margin-top: 8px;
+          margin-top: 6px;
         }
         .names {
           display: flex;
           gap: 24px;
           @media (max-width: 768px) {
             flex-direction: column;
+            gap: 12px;
           }
         }
         .imageHolder {
@@ -84,6 +88,9 @@
             border: 3px dashed rgba(var(--colors-secondary));
             color: rgba(var(--colors-secondary));
             // background-color: rgba(var(--colors-primary), 0.8);
+            @media (max-width: 768px) {
+              height: 86px;
+            }
             cursor: pointer;
             text-align: center;
             span {
@@ -194,7 +201,7 @@
       }
     }
     .download {
-      background-color: rgba(var(--colors-primary));
+      background-color: rgba(var(--colors-secondary));
       position: absolute;
       top: 32px;
       right: 32px;
@@ -202,7 +209,7 @@
       border-radius: 50%;
       cursor: pointer;
       z-index: 101;
-      color: rgba(var(--colors-light));
+      color: rgba(var(--colors-primary));
       svg {
         width: 36px;
         height: 36px;
@@ -213,15 +220,19 @@
       }
     }
     .close {
-      background-color: rgba(var(--colors-primary));
+      background-color: red;
       position: absolute;
       top: 32px;
       right: 100px;
-      padding: 6px;
-      border-radius: 50%;
+      padding: 14px 24px;
+      border-radius: 20%;
       cursor: pointer;
       z-index: 101;
       color: rgba(var(--colors-light));
+      @media (max-width: 768px) {
+        right: 80px;
+        padding: 8px 12px;
+      }
       svg {
         width: 36px;
         height: 36px;
@@ -450,4 +461,115 @@
       max-width: map-get($container-max-width, xx-large);
     }
   }
+}
+
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+.menuContent {
+  background-color: rgba(var(--colors-tertiary));
+  width: 50%;
+  height: 100%;
+  transform: translateX(200%);
+  transition: transform 0.3s ease;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  .closeButton {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    color: rgba(var(--colors-secondary));
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 84px 44px;
+    height: 100%;
+
+    @media (max-width: 768px) {
+      gap: 16px;
+      padding: 64px 24px;
+    }
+    .miniText {
+      font-size: 10px;
+      color: rgba(var(--colors-secondary));
+      text-align: center;
+      margin-top: 6px;
+    }
+    .names {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      @media (max-width: 768px) {
+        gap: 12px;
+      }
+    }
+    .imageHolder {
+      display: flex;
+      width: 100%;
+      height: fit-content;
+      gap: 4px;
+      flex-direction: column;
+      .addPhoto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+        width: 100%;
+        height: 120px;
+        border: 3px dashed rgba(var(--colors-secondary));
+        color: rgba(var(--colors-secondary));
+        @media (max-width: 768px) {
+          height: 86px;
+        }
+        cursor: pointer;
+        text-align: center;
+        span {
+          margin-top: 8px;
+          font-size: 14px;
+          color: rgba(var(--colors-secondary));
+        }
+      }
+
+      .photo {
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.menuOverlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menuOverlay.open .menuContent {
+  transform: translateX(0);
 }

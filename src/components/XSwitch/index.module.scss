@@ -6,6 +6,9 @@
   font-weight: 500;
   cursor: pointer;
   user-select: none;
+  @media (max-width: 768px) {
+    font-size: 0.75rem; /* Tailwind: text-sm */
+  }
 }
 
 .switchContainerDisabled {
