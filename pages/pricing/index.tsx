@@ -10,7 +10,7 @@ import XHeader from '@/src/layouts/XHeader';
 import XFooter from '@/src/layouts/XFooter';
 import Link from 'next/link';
 
-export default function AboutPage() {
+export default function PricingPage() {
   return (
     <AppLayout>
       <XHeader />

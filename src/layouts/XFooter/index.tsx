@@ -46,13 +46,13 @@ export default function XFooter({ bg }: { bg: 'light' | 'dark' }) {
             <h4>Bilgilendirme</h4>
             <ul>
               <li>
-                <Link href="#">Gizlilik Politikası</Link>
+                <Link href="/privacy-policy">Gizlilik Politikası</Link>
               </li>
               <li>
-                <Link href="#">Şartlar ve Koşullar</Link>
+                <Link href="/term-of-use">Şartlar ve Koşullar</Link>
               </li>
               <li>
-                <Link href="#">Mesafeli Satış Sözleşmesi</Link>
+                <Link href="/selling-contract">Mesafeli Satış Sözleşmesi</Link>
               </li>
               <li>
                 <Link href="/contact">Destek</Link>

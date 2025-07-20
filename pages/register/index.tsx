@@ -45,23 +45,24 @@ export default function RegisterPage() {
         </form>
 
         <p className={styles.privacy}>
-          Kayıt olarak, <Link href={'/'}>kullanım şartlarımızı</Link>,{' '}
-          <Link href={'/'}>gizlilik politikamızı</Link> ve tanıtım e-postaları
-          almayı kabul etmiş olursunuz. Daha fazla bilgi için yasal
-          bilgilendirme sayfamızı ziyaret edebilirsiniz.
+          Kayıt olarak, <Link href={'/term-of-use'}>Kullanım Şartlarımızı</Link>
+          , <Link href={'/privacy-policy'}>Gizlilik Politikamızı</Link>,
+          <Link href={'/selling-contract'}> Mesafeli Satış Sözleşmemizi</Link>{' '}
+          ve tanıtım e-postaları almayı kabul etmiş olursunuz. Daha fazla bilgi
+          için yasal bilgilendirme sayfamızı ziyaret edebilirsiniz.
         </p>
       </div>
       {otpModal ? (
         <div className={styles.otpContainer}>
           <div className={styles.content}>
             <p className={styles.otpText}>
-              We have sent a verification code to your email address.
+              E-posta adresinize bir doğrulama kodu gönderdik.
             </p>
             <XOtpInput setOtp={setOtp} otp={otp} />
             <div className={styles.otpButtons}>
-              <XButton color="outline-secondary">Re-Code</XButton>
+              <XButton color="outline-secondary">Tekrar Gönder</XButton>
               <Link href={'/price-type'}>
-                <XButton color="outline-secondary">Continue</XButton>
+                <XButton color="outline-secondary">Devam Et</XButton>
               </Link>
             </div>
           </div>

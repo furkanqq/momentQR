@@ -16,6 +16,8 @@ import XSwitch from '@/src/components/XSwitch';
 
 import { useEffect, useState, useRef } from 'react';
 import AppLayout from '@/src/layouts/AppLayout';
+import { toPng } from 'html-to-image';
+import { saveAs } from 'file-saver';
 import Link from 'next/link';
 
 interface FirstInfo {
@@ -25,12 +27,14 @@ interface FirstInfo {
   name: string;
 }
 
-export default function SharingPage() {
+export default function ProfilePage() {
   const [photos, setPhotos] = useState<string[]>([]);
+  const [pendingPhotos, setPendingPhotos] = useState<string[]>([]);
   const [viewPhoto, setViewPhoto] = useState<string | null>(null);
   const [firstModal, setFirstModal] = useState<boolean>(true);
   const [deleteModal, setDeleteModal] = useState<boolean>(false);
   const [settingsModal, setSettingsModal] = useState<boolean>(false);
+  const [qrCodeModal, setQRCodeModal] = useState<boolean>(false);
   const [firstInfo, setFirstInfo] = useState<FirstInfo>({
     permission: false,
     partnerName: '',
@@ -44,7 +48,11 @@ export default function SharingPage() {
       const imageUrls = Array.from(files).map((file) =>
         URL.createObjectURL(file)
       );
-      setPhotos((prevPhotos) => [...prevPhotos, ...imageUrls]);
+      if (firstInfo.permission) {
+        setPendingPhotos((prevPhotos) => [...prevPhotos, ...imageUrls]);
+      } else {
+        setPhotos((prevPhotos) => [...prevPhotos, ...imageUrls]);
+      }
     }
   };
   const handleFirstInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -119,7 +127,7 @@ export default function SharingPage() {
     };
   }, [viewPhoto]);
 
-  const tabs = [
+  const permissionTabs = [
     {
       content: (
         <div className={styles.body}>
@@ -152,7 +160,56 @@ export default function SharingPage() {
     {
       content: (
         <div className={styles.body}>
+          {pendingPhotos.length > 0 ? (
+            <>
+              <div className={styles.buttons}>
+                <XButton
+                  onClick={() => {
+                    setPhotos([...photos, ...pendingPhotos]);
+                    setPendingPhotos([]);
+                  }}
+                  color="outline-secondary">
+                  Tümünü Onayla
+                </XButton>
+              </div>
+
+              <div className={styles.imageHolder}>
+                {pendingPhotos.map((photo, index) => (
+                  <div
+                    onClick={() => setViewPhoto(photo)}
+                    className={styles.photo}
+                    key={index}>
+                    <XImage alt={`Photo ${index + 1}`} src={photo} fill />
+                  </div>
+                ))}
+              </div>
+            </>
+          ) : (
+            <div className={styles.noData}>Fotoğraf Bulunmamaktadır.</div>
+          )}
+        </div>
+      ),
+      title: 'Onay Bekleyenler'
+    }
+  ];
+
+  const tabs = [
+    {
+      content: (
+        <div className={styles.body}>
           <div className={styles.imageHolder}>
+            <label className={styles.addPhoto}>
+              <IconCamera height={32} width={32} />
+              <span>+ Ekle</span>
+              <input
+                onChange={handleFileChange}
+                style={{ display: 'none' }}
+                accept="image/*,video/*"
+                type="file"
+                multiple
+              />
+            </label>
+
             {photos.map((photo, index) => (
               <div
                 onClick={() => setViewPhoto(photo)}
@@ -164,7 +221,7 @@ export default function SharingPage() {
           </div>
         </div>
       ),
-      title: 'Onay Bekleyenler'
+      title: 'Albüm'
     }
   ];
 
@@ -184,6 +241,12 @@ export default function SharingPage() {
             setDeleteModal={setDeleteModal}
             deletePhoto={deletePhoto}
           />
+        )}
+        {qrCodeModal && (
+          <QRCodeModal
+            partnerName={firstInfo.partnerName as string}
+            yourName={firstInfo.name as string}
+            setQRCodeModal={setQRCodeModal}></QRCodeModal>
         )}
         {settingsModal && (
           <SettingsModal
@@ -243,13 +306,13 @@ export default function SharingPage() {
                 <IconSettings height={24} width={24} />
               </div>
 
-              <div className={styles.icon}>
+              <div onClick={() => setQRCodeModal(true)} className={styles.icon}>
                 <IconQR height={24} width={24} />
               </div>
             </div>
           </div>
           <div className={styles.filter}>
-            <XTabView tabs={tabs} />
+            <XTabView tabs={firstInfo.permission ? permissionTabs : tabs} />
           </div>
         </XContainer>
         {/* <div className={styles.footer}></div> */}
@@ -313,7 +376,7 @@ const FirstModal: React.FC<{
           <div>
             <XSwitch
               label={
-                'Misafirlerinizin yüklediği fotoğrafları siz onayladıktan sonra herkesin görmesini ister misiniz?'
+                'Davetlilerinizin yüklediği fotoğrafların sizin onayınızdan geçmesini ister misiniz? (Onaylı Görsel)'
               }
               onChange={(value) =>
                 setFirstInfo({ ...firstInfo, permission: value })
@@ -467,7 +530,7 @@ const SettingsModal: React.FC<{
             <div>
               <XSwitch
                 label={
-                  'Misafirlerinizin yüklediği fotoğrafları siz onayladıktan sonra herkesin görmesini ister misiniz?'
+                  'Misafirlerinizin yüklediği fotoğrafları siz onayladıktan sonra herkesin görmesini ister misiniz? (Onaylı Görsel)'
                 }
                 onChange={(value) =>
                   setFirstInfo({ ...firstInfo, permission: value })
@@ -490,5 +553,139 @@ const SettingsModal: React.FC<{
         </div>
       </div>
     </>
+  );
+};
+
+const QRCodeModal: React.FC<{
+  setQRCodeModal: React.Dispatch<React.SetStateAction<boolean>>;
+  partnerName: string;
+  yourName: string;
+}> = ({ setQRCodeModal, partnerName, yourName }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = async () => {
+    if (!cardRef.current) return;
+
+    try {
+      const dataUrl = await toPng(cardRef.current, {
+        cacheBust: true,
+        height: 324,
+        width: 460
+      });
+
+      // Görseli indir
+      saveAs(dataUrl, 'qr-kart.png');
+    } catch (error) {
+      console.error('Görsel indirme hatası:', error);
+    }
+  };
+
+  const qrRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadQR = async () => {
+    if (!qrRef.current) return;
+
+    try {
+      const dataUrl = await toPng(qrRef.current, {
+        cacheBust: true,
+        height: 132,
+        width: 132
+      });
+
+      // Görseli indir
+      saveAs(dataUrl, 'qr-kart.png');
+    } catch (error) {
+      console.error('Görsel indirme hatası:', error);
+    }
+  };
+  const tabs = [
+    {
+      content: (
+        <div className={styles.qrCard}>
+          <div className={styles.download}>
+            <XButton
+              className={styles.downloadButton}
+              onClick={handleDownload}
+              color="blur">
+              <IconDownload height={16} width={16} />
+            </XButton>
+          </div>
+          <div className={styles.content} ref={cardRef}>
+            <div className={styles.pattern}>
+              <XImage src={'/assets/pattern.png'} alt={'pattern'} fill />
+            </div>
+            <div className={styles.brand}>
+              <XImage src="/assets/mqr.png" height={80} width={80} alt="Logo" />
+            </div>
+            <div className={styles.title}>
+              <div className={styles.eventTitle}>
+                {partnerName} & {yourName}
+              </div>
+              <div className={styles.eventInfo}>Hoş Geldiniz</div>
+              <div className={styles.eventInfo}>
+                Fotoğraf yükleyebilirsiniz veya diğer davetlilerin
+                yüklediklerini görüntüleyebilirsiniz.
+              </div>
+            </div>
+
+            <div className={styles.wrapper}>
+              <div className={styles.qrWrapper}>
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://fotosec.com/dugun/abc123"
+                  alt="QR Code"
+                />
+              </div>
+
+              <div className={styles.note}>
+                Bu QR kodu okutarak etkinliğe özel davetli fotoğraf alanına
+                katılabilirsiniz. 📸
+              </div>
+            </div>
+          </div>
+          <div className={styles.info}>
+            Kartın en net hali için 460x324 px ile kullanmanız önerilir.
+          </div>
+        </div>
+      ),
+      title: 'Moment-QR'
+    },
+    {
+      content: (
+        <div className={styles.onlyQR}>
+          <div className={styles.download}>
+            <XButton
+              className={styles.downloadButton}
+              onClick={handleDownloadQR}
+              color="blur">
+              <IconDownload height={16} width={16} />
+            </XButton>
+          </div>
+          <div className={styles.qrWrapper} ref={qrRef}>
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://fotosec.com/dugun/abc123"
+              alt="QR Code"
+            />
+          </div>
+        </div>
+      ),
+      title: 'Sadece QR'
+    }
+  ];
+  return (
+    <div className={styles.qrCodeModal}>
+      <div className={styles.content}>
+        <button
+          onClick={() => setQRCodeModal(false)}
+          className={styles.closeButton}>
+          <IconClose height={28} width={28} />
+        </button>
+        <div className={styles.logo}>
+          <XImage src="/assets/mqr.png" height={200} width={200} alt="Logo" />
+        </div>
+        <div className={styles.sure}>
+          <XTabView tabs={tabs} />
+        </div>
+      </div>
+    </div>
   );
 };
